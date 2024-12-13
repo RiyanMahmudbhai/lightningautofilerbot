@@ -655,7 +655,7 @@ async def get_cap(settings, remaining_seconds, files, query, total_results, sear
         IMDB_CAP = temp.IMDB_CAP.get(query.from_user.id)
         if IMDB_CAP:
             cap = IMDB_CAP
-            cap+="<b>\n\n<u>🍿 Your Movie Files 👇</u></b>\n\n"
+            cap += "<b>\n\n<u>🍿 Your Movie Files 👇</u></b>\n\n"
             for file in files:
                 cap += f"<b>📁 <a href='https://telegram.me/{temp.U_NAME}?start=files_{file['file_id']}'>[{get_size(file['file_size'])}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file['file_name'].split()))}\n\n</a></b>"
         else:
@@ -666,47 +666,48 @@ async def get_cap(settings, remaining_seconds, files, query, total_results, sear
                     query=search,
                     title=imdb['title'],
                     votes=imdb['votes'],
-                    aka=imdb["aka"],
-                    seasons=imdb["seasons"],
-                    box_office=imdb['box_office'],
-                    localized_title=imdb['localized_title'],
-                    kind=imdb['kind'],
-                    imdb_id=imdb["imdb_id"],
-                    cast=imdb["cast"],
-                    runtime=imdb["runtime"],
-                    countries=imdb["countries"],
-                    certificates=imdb["certificates"],
-                    languages=imdb["languages"],
-                    director=imdb["director"],
-                    writer=imdb["writer"],
-                    producer=imdb["producer"],
-                    composer=imdb["composer"],
-                    cinematographer=imdb["cinematographer"],
-                    music_team=imdb["music_team"],
-                    distributors=imdb["distributors"],
-                    release_date=imdb['release_date'],
-                    year=imdb['year'],
-                    genres=imdb['genres'],
-                    poster=imdb['poster'],
-                    plot=imdb['plot'],
-                    rating=imdb['rating'],
-                    url=imdb['url'],
-                    **locals()
+                    aka=imdb.get("aka", "N/A"),
+                    seasons=imdb.get("seasons", "N/A"),
+                    box_office=imdb.get("box_office", "N/A"),
+                    localized_title=imdb.get("localized_title", "N/A"),
+                    kind=imdb.get("kind", "N/A"),
+                    imdb_id=imdb.get("imdb_id", "N/A"),
+                    cast=imdb.get("cast", "N/A"),
+                    runtime=imdb.get("runtime", "N/A"),
+                    countries=imdb.get("countries", "N/A"),
+                    certificates=imdb.get("certificates", "N/A"),
+                    languages=imdb.get("languages", "N/A"),
+                    director=imdb.get("director", "N/A"),
+                    writer=imdb.get("writer", "N/A"),
+                    producer=imdb.get("producer", "N/A"),
+                    composer=imdb.get("composer", "N/A"),
+                    cinematographer=imdb.get("cinematographer", "N/A"),
+                    music_team=imdb.get("music_team", "N/A"),
+                    distributors=imdb.get("distributors", "N/A"),
+                    release_date=imdb.get('release_date', "N/A"),
+                    year=imdb.get('year', "N/A"),
+                    genres=imdb.get('genres', "N/A"),
+                    poster=imdb.get('poster', "N/A"),
+                    plot=imdb.get('plot', "N/A"),
+                    rating=imdb.get('rating', "N/A"),
+                    url=imdb.get('url', "#"),
+                    remaining_seconds=remaining_seconds  # Pass remaining_seconds
                 )
-                cap+="<b>\n\n<u>🍿 Your Movie Files 👇</u></b>\n\n"
+                cap += "<b>\n\n<u>🍿 Your Movie Files 👇</u></b>\n\n"
                 for file in files:
                     cap += f"<b>📁 <a href='https://telegram.me/{temp.U_NAME}?start=files_{file['file_id']}'>[{get_size(file['file_size'])}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file['file_name'].split()))}\n\n</a></b>"
             else:
                 cap = f"<b>Tʜᴇ Rᴇꜱᴜʟᴛꜱ Fᴏʀ ☞ {search}\n\nRᴇǫᴜᴇsᴛᴇᴅ Bʏ ☞ {query.from_user.mention}\n\nʀᴇsᴜʟᴛ sʜᴏᴡ ɪɴ ☞ {remaining_seconds} sᴇᴄᴏɴᴅs\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ ☞ : {query.message.chat.title}\n\n⚠️ ᴀꜰᴛᴇʀ 5 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ 🗑️\n\n</b>"
-                cap+="<b><u>🍿 Your Movie Files 👇</u></b>\n\n"
+                cap += "<b><u>🍿 Your Movie Files 👇</u></b>\n\n"
                 for file in files:
                     cap += f"<b>📁 <a href='https://telegram.me/{temp.U_NAME}?start=files_{file['file_id']}'>[{get_size(file['file_size'])}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file['file_name'].split()))}\n\n</a></b>"
     else:
         cap = f"<b>Tʜᴇ Rᴇꜱᴜʟᴛꜱ Fᴏʀ ☞ {search}\n\nRᴇǫᴜᴇsᴛᴇᴅ Bʏ ☞ {query.from_user.mention}\n\nʀᴇsᴜʟᴛ sʜᴏᴡ ɪɴ ☞ {remaining_seconds} sᴇᴄᴏɴᴅs\n\nᴘᴏᴡᴇʀᴇᴅ ʙʏ ☞ : {query.message.chat.title} \n\n⚠️ ᴀꜰᴛᴇʀ 5 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ 🗑️\n\n</b>"
-        cap+="<b><u>🍿 Your Movie Files 👇</u></b>\n\n"
+        cap += "<b><u>🍿 Your Movie Files 👇</u></b>\n\n"
         for file in files:
             cap += f"<b>📁 <a href='https://telegram.me/{temp.U_NAME}?start=files_{file['file_id']}'>[{get_size(file['file_size'])}] {' '.join(filter(lambda x: not x.startswith('[') and not x.startswith('@') and not x.startswith('www.'), file['file_name'].split()))}\n\n</a></b>"
     return cap
+
 
 
 async def get_seconds(time_string):
