@@ -189,27 +189,9 @@ caption = IMDB_TEMPLATE.format(
     release_date=release_date,
     countries=countries,
     message=message,
-    remaining_seconds=remaining_seconds  # Pass the calculated value
-)
+    remaining_seconds=remaining_seconds
 )
 
-            certificates=imdb.get("certificates", 'N/A'),
-            languages=imdb.get("languages", 'N/A'),
-            director=imdb.get("director", 'N/A'),
-            writer=imdb.get("writer", 'N/A'),
-            producer=imdb.get("producer", 'N/A'),
-            composer=imdb.get("composer", 'N/A'),
-            cinematographer=imdb.get("cinematographer", 'N/A'),
-            music_team=imdb.get("music_team", 'N/A'),
-            distributors=imdb.get("distributors", 'N/A'),
-            release_date=imdb.get('release_date', 'N/A'),
-            year=imdb.get('year', 'N/A'),
-            genres=imdb.get('genres', 'N/A'),
-            poster=imdb.get('poster', 'N/A'),
-            plot=imdb.get('plot', 'N/A'),
-            rating=imdb.get('rating', 'N/A'),
-            url=imdb.get('url', '#'),
-        )
     else:
         caption = "No Results"
     
