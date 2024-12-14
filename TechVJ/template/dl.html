@@ -3,33 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Disabled Navbar</title>
+    <title>Page Title</title>
     <style>
-        /* Disable Navbar Button */
-        #navButton {
-            pointer-events: none;
-            opacity: 0.5; /* Optional: dimmed appearance */
-        }
+        /* Removed navbar button styling */
     </style>
 </head>
 <body>
     <!-- Navbar -->
-    <nav>
-        <button id="navButton" class="nav-btn">Navbar</button>
+    <nav style="display: none;">
+        <!-- Navbar is hidden -->
     </nav>
 
     <!-- Page Content -->
     <div>
         <h1>Welcome</h1>
-        <p>This is your page content.</p>
+        <p>This is your page content without the Navbar and -Tech VJ text.</p>
     </div>
-
-    <script>
-        // Disable Navbar Button
-        const navButton = document.getElementById('navButton');
-        if (navButton) {
-            navButton.disabled = true;
-        }
-    </script>
 </body>
 </html>
