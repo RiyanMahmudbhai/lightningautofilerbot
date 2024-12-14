@@ -9,6 +9,7 @@ from info import IMDB_TEMPLATE
 from utils import extract_user, get_file_id, get_poster, last_online 
 from datetime import datetime
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
+from time import time  # Add this import at the top of the file if not already there
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.ERROR)
@@ -130,6 +131,9 @@ async def who_is(client, message):
         )
     await status_message.delete()
 
+
+
+
 @Client.on_message(filters.command(["imdb", 'search']))
 async def imdb_search(client, message):
     if ' ' in message.text:
@@ -165,19 +169,30 @@ async def imdb_callback(bot: Client, quer_y: CallbackQuery):
     ]
     message = quer_y.message.reply_to_message or quer_y.message
     if imdb:
-        caption = IMDB_TEMPLATE.format(
-            query=movie,
-            title=imdb.get('title', 'N/A'),
-            votes=imdb.get('votes', 'N/A'),
-            aka=imdb.get("aka", 'N/A'),
-            seasons=imdb.get("seasons", 'N/A'),
-            box_office=imdb.get('box_office', 'N/A'),
-            localized_title=imdb.get('localized_title', 'N/A'),
-            kind=imdb.get('kind', 'N/A'),
-            imdb_id=imdb.get("imdb_id", 'N/A'),
-            cast=imdb.get("cast", 'N/A'),
-            runtime=imdb.get("runtime", 'N/A'),
-            countries=imdb.get("countries", 'N/A'),
+# Calculate remaining_seconds
+start_time = time()  # Start timer (this should ideally be set when processing begins)
+# [Your processing logic goes here, if needed]
+end_time = time()  # End timer
+remaining_seconds = round(end_time - start_time)  # Calculate elapsed time in seconds
+
+# Format caption with all required fields
+caption = IMDB_TEMPLATE.format(
+    query=query,
+    url=url,
+    title=title,
+    genres=genres,
+    year=year,
+    rating=rating,
+    votes=votes,
+    languages=languages,
+    runtime=runtime,
+    release_date=release_date,
+    countries=countries,
+    message=message,
+    remaining_seconds=remaining_seconds  # Pass the calculated value
+)
+)
+
             certificates=imdb.get("certificates", 'N/A'),
             languages=imdb.get("languages", 'N/A'),
             director=imdb.get("director", 'N/A'),
