@@ -176,39 +176,27 @@ end_time = time()  # End timer
 remaining_seconds = round(end_time - start_time)  # Calculate elapsed time in seconds
 
 
-    if imdb:
-# Format caption with all required fields
-caption = IMDB_TEMPLATE.format(
-    query=query,
-    url=url,
-    title=title,
-    genres=genres,
-    year=year,
-    rating=rating,
-    votes=votes,
-    languages=languages,
-    runtime=runtime,
-    release_date=release_date,
-    countries=countries,
-    message=message,
-    remaining_seconds=remaining_seconds
-)
+# Calculate remaining_seconds
+start_time = time()  # Start timer
+end_time = time()  # End timer
+remaining_seconds = round(end_time - start_time)  # Calculate elapsed time in seconds
 
-    else:
-        caption = "No Results"
-    
-    if imdb.get('poster'):
-        try:
-            await quer_y.message.reply_photo(photo=imdb['poster'], caption=caption, reply_markup=InlineKeyboardMarkup(btn))
-        except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
-            pic = imdb.get('poster', '')
-            poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            await quer_y.message.reply_photo(photo=poster, caption=caption, reply_markup=InlineKeyboardMarkup(btn))
-        except Exception as e:
-            logger.exception(e)
-            await quer_y.message.reply(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
-        await quer_y.message.delete()
-    else:
-        await quer_y.message.edit(caption, reply_markup=InlineKeyboardMarkup(btn), disable_web_page_preview=False)
-    await quer_y.answer()
-
+if imdb:  # Proper indentation here
+    # Format caption with all required fields
+    caption = IMDB_TEMPLATE.format(
+        query=query,
+        url=imdb.get('url', ''),
+        title=imdb.get('title', ''),
+        genres=imdb.get('genres', ''),
+        year=imdb.get('year', ''),
+        rating=imdb.get('rating', ''),
+        votes=imdb.get('votes', ''),
+        languages=imdb.get('languages', ''),
+        runtime=imdb.get('runtime', ''),
+        release_date=imdb.get('release_date', ''),
+        countries=imdb.get('countries', ''),
+        message=message,
+        remaining_seconds=remaining_seconds
+    )
+else:
+    caption = "No Results"
