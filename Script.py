@@ -250,25 +250,22 @@ Nᴀᴍᴇ - {}"""
 
 <b> Size ⚙️: {file_size}</b>""" 
 
-    IMDB_TEMPLATE_TXT = """
-<b>Query: {query}
+cap = IMDB_TEMPLATE_TXT.format(
+    query=search,
+    url=imdb.get('url', '#'),
+    title=imdb.get('title', 'N/A'),
+    genres=imdb.get('genres', 'N/A'),
+    year=imdb.get('year', 'N/A'),
+    rating=imdb.get('rating', 'N/A'),
+    votes=imdb.get('votes', 'N/A'),
+    languages=imdb.get('languages', 'N/A'),
+    runtime=imdb.get('runtime', 'N/A'),
+    release_date=imdb.get('release_date', 'N/A'),
+    countries=imdb.get('countries', 'N/A'),
+    remaining_seconds=remaining_seconds,
+    user_mention=message.from_user.mention  # Explicitly passing mention
+)
 
-IMDb Data:
-
-<b>🏷 Title</b>: <a href={url}>{title}</a>
-🎭 Genres: {genres}
-📆 Year: <a href={url}/releaseinfo>{year}</a>
-🌟 Rating: <a href={url}/ratings>{rating}</a> / 10 (based on {votes} user ratings.)
-☀️ Languages : <code>{languages}</code>
-📀 RunTime: {runtime} Minutes
-📆 Release Info : {release_date}
-🎛 Countries : <code>{countries}</code>
-
-
-⏰Result Shown in: {remaining_seconds} <i>seconds</i> 🔥
-
-Requested by : {message.from_user.mention}</b>"""
-    
     ALL_FILTERS = """
 <b>Hᴇʏ {}, Tʜᴇsᴇ ᴀʀᴇ ᴍʏ ᴛʜʀᴇᴇ ᴛʏᴘᴇs ᴏғ ғɪʟᴛᴇʀs.</b>"""
     
