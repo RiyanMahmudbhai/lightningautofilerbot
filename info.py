@@ -17,7 +17,7 @@ BOT_TOKEN = environ.get('BOT_TOKEN', "7851186337:AAER37LHzUwja6_SnriUd8XcuLUg9tS
 
 
 # This Pictures Is For Start Message Picture, You Can Add Multiple By Giving One Space Between Each.
-PICS = (environ.get('PICS', 'https://envs.sh/lDG.jpg')).split()
+PICS = (environ.get('PICS', 'https://envs.sh/8IQ.jpg https://envs.sh/8Ih.jpg https://envs.sh/8Id.jpg https://envs.sh/8I2.jpg https://envs.sh/8Iu.jpg https://envs.sh/8IF.jpg https://envs.sh/8It.jpg https://envs.sh/8Ie.jpg https://envs.sh/8Ii.jpg https://envs.sh/8Ib.jpg https://envs.sh/8IP.jpg https://envs.sh/8Iw.jpg https://envs.sh/8I0.jpg https://envs.sh/8IS.jpg https://envs.sh/8IW.jpg https://envs.sh/8IB.jpg https://envs.sh/8II.jpg https://envs.sh/8In.jpg https://envs.sh/8IT.jpg https://envs.sh/8Ip.jpg')).split()
 
 
 # Admins & Users
@@ -41,7 +41,7 @@ auth_channel = environ.get('AUTH_CHANNEL', '') # give your force subscribe chann
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 
 # This Channel Is For When User Request File With command or hashtag like - /request or #request
-reqst_channel = environ.get('REQST_CHANNEL_ID', '')
+reqst_channel = environ.get('REQST_CHANNEL_ID', '-1002348756696')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 
 # This Is Your Bot Support Group Id , Here Bot Will Not Give File Because This Is Support Group.
@@ -49,13 +49,13 @@ support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1001729778835')
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 
 # This Channel Is For Index Request 
-INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', '-1001633466328'))
+INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', '-1002348756696'))
 
 # This Channel Is For /batch command file store.
 FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '-1001559586953')).split()]  # For Multiple Id Use One Space Between Each.
 
 # This Channel Is For Delete Index File, Forward Your File In This Channel Which You Want To Delete Then Bot Automatically Delete That File From Database.
-DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '0').split()]  # For Multiple Id Use One Space Between Each.
+DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1002314419902').split()]  # For Multiple Id Use One Space Between Each.
 
 
 # MongoDB information
@@ -63,7 +63,7 @@ DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://xefic98242:xefic98242@
 DATABASE_NAME = environ.get('DATABASE_NAME', "lightningauto")
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'lightningauto')
 
-MULTIPLE_DATABASE = bool(environ.get('MULTIPLE_DATABASE', False)) # Set True or False
+MULTIPLE_DATABASE = bool(environ.get('MULTIPLE_DATABASE', True)) # Set True or False
 
 # If Multiple Database Is True Then Fill All Three Below Database Uri Else You Will Get Error.
 O_DB_URI = environ.get('O_DB_URI', "mongodb+srv://l16v9ht4tc:l16v9ht4tc@autofilerlightnig.tvnib.mongodb.net/?retryWrites=true&w=majority&appName=autofilerlightnig")   # This Db Is For Other Data Store
@@ -95,7 +95,7 @@ OWNER_LNK = environ.get('OWNER_LNK', 'https://t.me/asifalex2')
 
 # True Or False
 AI_SPELL_CHECK = bool(environ.get('AI_SPELL_CHECK', True))
-PM_SEARCH = bool(environ.get('PM_SEARCH', True))
+PM_SEARCH = bool(environ.get('PM_SEARCH', Faslse))
 BUTTON_MODE = bool(environ.get('BUTTON_MODE', True))
 MAX_BTN = bool(environ.get('MAX_BTN', True))
 IS_TUTORIAL = bool(environ.get('IS_TUTORIAL', False))
@@ -105,7 +105,7 @@ AUTO_DELETE = bool(environ.get('AUTO_DELETE', True))
 LONG_IMDB_DESCRIPTION = bool(environ.get("LONG_IMDB_DESCRIPTION", True))
 SPELL_CHECK_REPLY = bool(environ.get("SPELL_CHECK_REPLY", True))
 MELCOW_NEW_USERS = bool(environ.get('MELCOW_NEW_USERS', True))
-PROTECT_CONTENT = bool(environ.get('PROTECT_CONTENT', False))
+PROTECT_CONTENT = bool(environ.get('PROTECT_CONTENT', True))
 PUBLIC_FILE_STORE = bool(environ.get('PUBLIC_FILE_STORE', True))
 NO_RESULTS_MSG = bool(environ.get("NO_RESULTS_MSG", False))
 USE_CAPTION_FILTER = bool(environ.get('USE_CAPTION_FILTER', False))
