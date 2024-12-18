@@ -2216,8 +2216,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
 
-elif query.data == "shortlink_info":
-    await query.answer("🚫 This Is Under Maintenance 🚫", show_alert=True)
+async def handle_callback(query):
+    try:
+        # Send an alert message indicating maintenance status
+        await query.answer("🚫 This Is Under Maintenance 🚫", show_alert=True)
+    except Exception as e:
+        # Handle potential exceptions gracefully
+        print(f"Error handling callback query: {e}")
 
 
     elif query.data == "tele":
