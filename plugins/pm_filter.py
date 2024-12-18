@@ -2216,7 +2216,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             parse_mode=enums.ParseMode.HTML
         )
     elif query.data == "shortlink_info":
-        btn = [[
+    
 async def handle_callback(query):
     try:
         # Send an alert message indicating maintenance status
