@@ -2219,7 +2219,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
 async def handle_callback(query):
     try:
         # Send an alert message indicating maintenance status
-        await query.answer("🚫 This Is Under Maintenance 🚫", show_alert=True)
+        await query.answer("🚫 This Is Under Maintenance 🚫", show_alert=1)
     except Exception as e:
         # Handle potential exceptions gracefully
         print(f"Error handling callback query: {e}")
