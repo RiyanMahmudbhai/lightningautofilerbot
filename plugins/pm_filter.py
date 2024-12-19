@@ -2224,7 +2224,6 @@ async def handle_callback(query):
         # Handle potential exceptions gracefully
         print(f"Error handling callback query: {e}")
 
-
     elif query.data == "tele":
         btn = [[
             InlineKeyboardButton("⟸ Bᴀᴄᴋ", callback_data="help"),
