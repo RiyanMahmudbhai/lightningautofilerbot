@@ -45,11 +45,11 @@ reqst_channel = environ.get('REQST_CHANNEL_ID', '-1002348756696')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 
 # This Is Your Bot Support Group Id , Here Bot Will Not Give File Because This Is Support Group.
-support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1001899552917')
+support_chat_id = environ.get('SUPPORT_CHAT_ID', '-1002329588949')
 SUPPORT_CHAT_ID = int(support_chat_id) if support_chat_id and id_pattern.search(support_chat_id) else None
 
 # This Channel Is For Index Request 
-INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', '-1002348756696'))
+INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', '-1002273021496'))
 
 # This Channel Is For /batch command file store.
 FILE_STORE_CHANNEL = [int(ch) for ch in (environ.get('FILE_STORE_CHANNEL', '-1001559586953')).split()]  # For Multiple Id Use One Space Between Each.
